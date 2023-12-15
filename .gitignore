@@ -34,3 +34,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# docker
+
+/postgres
+postgres/*
+
+// enviroment variables
+.env
