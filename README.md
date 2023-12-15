@@ -1,5 +1,5 @@
 
-# admin-todos
+# Administrador de Todos
 
 ## Descripción
 Este proyecto es una aplicación de administración de tareas que utiliza Next.js como framework de React.
