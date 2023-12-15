@@ -23,10 +23,15 @@ export async function GET(request: Request) {
     return NextResponse.json(todos);
 }
 
+
+// Validaciones
+
 const postSchema = object({
     description: string().required("Description is required"),
     complete: boolean().optional().default(false),
 });
+
+
 
 export async function POST(request: Request) {
     try {
