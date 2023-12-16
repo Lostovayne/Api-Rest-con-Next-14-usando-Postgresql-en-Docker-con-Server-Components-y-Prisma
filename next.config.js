@@ -1,4 +1,9 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+    //agregar ruta de imagenes externas
+    images: {
+        domains: ["tailus.io"],
+    },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
