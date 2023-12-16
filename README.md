@@ -26,6 +26,7 @@ En el directorio del proyecto, puedes ejecutar los siguientes comandos:
 - `pnpm dlx prisma init` : Comando para iniciar Prisma con los datos por defecto
 - `pnpm dlx prisma migrate dev`: Comando para migrar la base de datos , mover el modelo de prisma a la bd de desarrollo
 - `pnpm dlx prisma generate`:  Crear el prisma client para utilizarlo
+-  `pnpm dlx prisma migrate deploy`: Si es de produccion la base de datos ejecutar 
 
 ## Dependencias
 - React: ^18
