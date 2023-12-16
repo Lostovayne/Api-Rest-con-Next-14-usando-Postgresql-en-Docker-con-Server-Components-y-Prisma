@@ -1,5 +1,6 @@
 import prisma from "@/lib/prisma";
-import { NextResponse, NextRequest } from "next/server";
+import { Todo } from "@prisma/client";
+import { NextResponse } from "next/server";
 import { boolean, object, string } from "yup";
 
 export async function GET(request: Request) {
@@ -23,15 +24,11 @@ export async function GET(request: Request) {
     return NextResponse.json(todos);
 }
 
-
 // Validaciones
-
 const postSchema = object({
     description: string().required("Description is required"),
     complete: boolean().optional().default(false),
 });
-
-
 
 export async function POST(request: Request) {
     try {
