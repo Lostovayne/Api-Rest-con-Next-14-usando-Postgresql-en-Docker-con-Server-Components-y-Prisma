@@ -13,7 +13,7 @@ const SidebarItem = ({ icon, path, title }: MenuProps) => {
             <Link
                 href={path!}
                 className={cn(
-                    "px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group",
+                    "px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group ",
                     pathName === path
                         ? "text-slate-50 bg-gradient-to-r from-sky-600 to-cyan-400"
                         : ""
