@@ -5,7 +5,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     return (
         <>
             <Sidebar />
-            <div className="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%] max-h-screen bg-slate-200">
+            <div className="ml-auto  lg:w-[75%] xl:w-[80%] 2xl:w-[85%] bg-white py-4 px-2 rounded-md">
                 <TopMenu />
                 <div className="px-6 pt-6">{children}</div>
             </div>
