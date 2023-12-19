@@ -2,7 +2,14 @@
 const nextConfig = {
     //agregar ruta de imagenes externas
     images: {
-        domains: ["tailus.io"],
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "tailus.io",
+                port: "",
+                pathname: "/**",
+            },
+        ],
     },
 };
 

@@ -1,5 +1,4 @@
 import prisma from "@/lib/prisma";
-import { Todo } from "@prisma/client";
 import { NextResponse } from "next/server";
 import { boolean, object, string } from "yup";
 
@@ -9,11 +8,17 @@ export async function GET(request: Request) {
     const skip = Number(searchParams.get("skip") ?? "0");
 
     if (isNaN(skip)) {
-        return NextResponse.json({ message: "Skip invalido debe ser un Numero" }, { status: 400 });
+        return NextResponse.json(
+            { message: "Skip invalido debe ser un Numero" },
+            { status: 400 }
+        );
     }
 
     if (isNaN(take)) {
-        return NextResponse.json({ message: "Take invalido debe ser un Numero" }, { status: 400 });
+        return NextResponse.json(
+            { message: "Take invalido debe ser un Numero" },
+            { status: 400 }
+        );
     }
 
     const todos = await prisma.todo.findMany({
@@ -36,6 +41,20 @@ export async function POST(request: Request) {
         const todo = await prisma.todo.create({ data: { complete, description } });
 
         return NextResponse.json(todo);
+    } catch (error) {
+        return NextResponse.json(error, { status: 400 });
+    }
+}
+
+export async function DELETE(request: Request) {
+    try {
+        await prisma.todo.deleteMany({
+            where: {
+                complete: true,
+            },
+        });
+
+        return NextResponse.json({ message: "Todos completados Eliminados" });
     } catch (error) {
         return NextResponse.json(error, { status: 400 });
     }
