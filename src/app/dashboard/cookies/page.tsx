@@ -1,5 +1,5 @@
-import { cookies } from "next/headers";
 import { TabBar } from "@/components";
+import { cookies } from "next/headers";
 
 export const metadata = {
     title: "Cookies Page",
