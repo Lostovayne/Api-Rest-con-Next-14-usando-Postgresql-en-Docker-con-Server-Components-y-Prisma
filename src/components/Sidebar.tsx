@@ -4,6 +4,7 @@ import { CiBookmarkCheck, CiLogout } from "react-icons/ci";
 import SidebarItem from "./SidebarItem";
 import {
     IoCalendarOutline,
+    IoCartOutline,
     IoCheckboxOutline,
     IoCodeWorking,
     IoListOutline,
@@ -35,6 +36,11 @@ const menuItem: MenuProps[] = [
         icon: <IoCodeWorking size={18} />,
         title: "Cookies",
         path: "/dashboard/cookies",
+    },
+    {
+        icon: <IoCartOutline size={18} />,
+        title: "Products",
+        path: "/dashboard/products",
     },
 ];
 

@@ -4,6 +4,8 @@ import { setCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+// https://tailwindcomponents.com/component/radio-buttons-1
+
 interface Props {
     currentTab?: number;
     tabOptions?: number[];

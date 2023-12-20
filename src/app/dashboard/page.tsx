@@ -13,7 +13,7 @@ export default function DashboardPage() {
                             <div className="flex items-end gap-1 text-green-500">
                                 <svg
                                     className="w-3"
-                                    viewBox="0 0 100% 4"
+                                    viewBox="0 0 283 64"
                                     fill="none"
                                     xmlns="http://www.w3.org/2000/svg"
                                 >
