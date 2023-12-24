@@ -1,7 +1,16 @@
 import { Sidebar } from "@/components/Sidebar";
 import { TopMenu } from "@/components/TopMenu";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
+import { authOptions } from "../api/auth/[...nextauth]/route";
 
-export default function DashboardLayout({ children }: { children: React.ReactNode }) {
+export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
+    const session = await getServerSession(authOptions);
+
+    if (!session) {
+        redirect("/api/auth/signin");
+    }
+
     return (
         <>
             <Sidebar />
