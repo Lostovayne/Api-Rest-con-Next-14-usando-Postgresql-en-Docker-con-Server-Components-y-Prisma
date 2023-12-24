@@ -1,23 +1,22 @@
 import { WidgetItem } from "@/components/WidgetItem";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../api/auth/[...nextauth]/route";
+import { redirect } from "next/navigation";
 
-export default function DashboardPage() {
+export default async function DashboardPage() {
+    const session = await getServerSession(authOptions);
+
+    if (!session) {
+        redirect("/api/auth/signin");
+    }
+
     return (
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <WidgetItem title="Global Activities">
-                <h3 className="text-3xl font-bold text-gray-700">$23,988</h3>
-                <div className="flex items-end gap-1 text-green-500">
-                    <svg
-                        className="w-3"
-                        viewBox="0 0 283 64"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M6.00001 0L12 8H-3.05176e-05L6.00001 0Z"
-                            fill="currentColor"
-                        />
-                    </svg>
-                    <span>2%</span>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 ">
+            <WidgetItem title="Usuario conectado server side">
+                <div className="flex flex-col">
+                    <span>{session.user!.name}</span>
+                    <span>{session.user!.email}</span>
+                    <span>{session.user!.image}</span>
                 </div>
             </WidgetItem>
         </div>

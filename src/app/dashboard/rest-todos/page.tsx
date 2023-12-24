@@ -17,7 +17,7 @@ export default async function RestTodosPage() {
     });
 
     return (
-        <div className="h-[calc(100vh-115px)] overflow-hidden ">
+        <div className="h-[calc(100vh-120px)] overflow-hidden ">
             {/* TODO: Agregar un formulario */}
             <div className="w-full  mb-5">
                 <NewTodo />

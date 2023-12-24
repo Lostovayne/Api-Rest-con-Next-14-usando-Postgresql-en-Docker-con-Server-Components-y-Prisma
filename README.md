@@ -54,4 +54,5 @@ En el directorio del proyecto, puedes ejecutar los siguientes comandos:
 
 
 ## Variables de entorno
--    `DATABASE_URL=`
+- `DATABASE_URL="postgresql://postgres:postgres@localhost:5432/postgres"`
+- `URL_TO_FETCH="http://localhost:3000"`
