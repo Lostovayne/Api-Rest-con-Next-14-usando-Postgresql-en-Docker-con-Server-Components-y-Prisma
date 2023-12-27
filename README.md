@@ -40,6 +40,21 @@ En el directorio del proyecto, puedes ejecutar los siguientes comandos:
 - React Dom: ^18
 - Next: 14.0.4
 
+## Uso de Authjs para autenticación
+- [Authjs](https://authjs.dev/)
+- ` NEXTAUTH_SECRET `
+- Se usó la coneccion a Google y Github
+- ` GOOGLE_CLIENT_ID `
+- ` GOOGLE_CLIENT_SECRET `
+- ` GITHUB_ID `
+- ` GITHUB_SECRET `
+- Se usó el modelo  de prisma para  guardar los datos del usuario 
+- ``@auth/prisma-adapter``
+- Se ejecutaron nuevamente los comandos de prisma para volver a crear la migracion y el cliente prisma
+
+
+
+
 ## Dependencias de desarrollo
 - Typescript: ^5
 - @types/node: ^20

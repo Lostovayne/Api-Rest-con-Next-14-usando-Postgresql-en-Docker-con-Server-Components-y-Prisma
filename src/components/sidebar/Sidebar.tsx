@@ -12,6 +12,7 @@ import {
     IoPersonAddOutline,
 } from "react-icons/io5";
 import SidebarItem from "./SidebarItem";
+import { LogoutButton } from "./LogoutButton";
 
 export interface MenuProps {
     icon?: React.ReactNode;
@@ -55,6 +56,9 @@ const menuItem: MenuProps[] = [
 export const Sidebar = async () => {
     const session = await getServerSession(authOptions);
 
+    const userName = session?.user?.name ?? "No Name";
+    const userRoles = session?.user?.roles ?? ["Client"];
+
     return (
         <aside className="ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-white transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
             <div>
@@ -85,9 +89,11 @@ export const Sidebar = async () => {
                     />
 
                     <h5 className="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">
-                        {session?.user?.name ?? "John Doe"}
+                        {userName}
                     </h5>
-                    <span className="hidden text-gray-400 lg:block">Product Designer</span>
+                    <span className="hidden text-gray-400 lg:block capitalize">
+                        {userRoles.join(", ")}
+                    </span>
                 </div>
 
                 <ul className="space-y-2 tracking-wide mt-8">
@@ -98,10 +104,7 @@ export const Sidebar = async () => {
             </div>
 
             <div className="px-6 -mx-6 pt-4 flex justify-between items-center border-t">
-                <button className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
-                    <CiLogout />
-                    <span className="group-hover:text-gray-700">Logout</span>
-                </button>
+                <LogoutButton />
             </div>
         </aside>
     );

@@ -1,4 +1,4 @@
-import { Sidebar } from "@/components/Sidebar";
+import { Sidebar } from "@/components/sidebar/Sidebar";
 import { TopMenu } from "@/components/TopMenu";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";

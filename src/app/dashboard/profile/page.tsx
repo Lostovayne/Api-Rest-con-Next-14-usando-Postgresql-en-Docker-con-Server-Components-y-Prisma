@@ -12,6 +12,8 @@ const ProfilePage = () => {
                 <span>{session?.user?.name ?? "No name"} </span>
                 <span>{session?.user?.email ?? "No email"}</span>
                 <span>{session?.user?.image ?? "No image"}</span>
+                <span>{session?.user?.roles?.join(",") ?? "No roles"}</span>
+                <span>{session?.user?.id ?? "No id"}</span>
             </div>
         </div>
     );
