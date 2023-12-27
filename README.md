@@ -35,6 +35,12 @@ En el directorio del proyecto, puedes ejecutar los siguientes comandos:
 - `pnpm dlx prisma generate`:  Crear el prisma client para utilizarlo
 -  `pnpm dlx prisma migrate deploy`: Si es de produccion la base de datos ejecutar 
 
+## User Default test 
+ __user__: admin@localhost
+ __password__: admin
+
+
+
 ## Dependencias
 - React: ^18
 - React Dom: ^18

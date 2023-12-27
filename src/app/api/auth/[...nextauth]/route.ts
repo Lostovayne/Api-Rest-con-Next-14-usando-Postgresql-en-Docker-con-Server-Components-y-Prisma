@@ -73,7 +73,7 @@ export const authOptions: NextAuthOptions = {
                 session.user.roles = token.roles;
                 session.user.id = token.id;
             }
-            console.log({ session });
+            // console.log({ session });
             return session;
         },
     },

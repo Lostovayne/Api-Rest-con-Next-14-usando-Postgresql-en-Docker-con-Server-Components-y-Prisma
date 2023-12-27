@@ -1,3 +1,4 @@
+import { getUserSessionServer } from "@/app/auth/actions/auth-actions";
 import prisma from "@/lib/prisma";
 import { Todo } from "@prisma/client";
 import { NextResponse } from "next/server";
@@ -9,8 +10,19 @@ interface Segments {
     };
 }
 
-const getTodo = (id: string): Promise<Todo | null> => {
+const getTodo = async (id: string): Promise<Todo | null> => {
+    const user = await getUserSessionServer();
+
+    if (!user) {
+        null;
+    }
+
     const todo = prisma.todo.findFirst({ where: { id } });
+
+    if (todo?.userId !== user?.id) {
+        return null;
+    }
+
     return todo;
 };
 
@@ -27,6 +39,12 @@ const putSchema = object({
 });
 
 export async function PUT(request: Request, { params: { id } }: Segments) {
+    const user = await getUserSessionServer();
+
+    if (!user) {
+        return NextResponse.json({ message: "User not autorizated" }, { status: 401 });
+    }
+
     const todo = await getTodo(id);
     if (!todo) return NextResponse.json({ message: `Todo ${id} not found` }, { status: 404 });
 

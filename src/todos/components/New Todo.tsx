@@ -1,17 +1,24 @@
 "use client";
-
+import * as todoApi from "@/todos/helpers/todos";
+import { useSession } from "next-auth/react";
 import { FormEvent, useState } from "react";
 import { IoTrashOutline } from "react-icons/io5";
 import { addTodo, deleteTodos } from "../actions/todo-actions";
+import { useRouter } from "next/navigation";
 
 export const NewTodo = () => {
     const [description, setDescription] = useState("");
+    const user = useSession();
+
+    const router = useRouter();
 
     const onSubmit = async (event: FormEvent) => {
         event.preventDefault();
         if (description.trim().length === 0) return;
-        await addTodo(description);
+        // await addTodo(description, user?.id as string);
+        await todoApi.CreateTodo(description);
         setDescription("");
+        router.refresh();
     };
 
     const deleteCompleted = async () => {
